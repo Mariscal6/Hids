@@ -1,24 +1,25 @@
-# Hids
+# HIDS
 
-## Instalación
+## Instalación OSSEC
 
-usuario@ubuntu-18:~/3.1.0/**ossec-hids-3.1.0**$ sudo ./install.sh
+1: Primero, debemos de instalar los programas de los que depende OSSEC, como PHP, gcc, libc y Apache. Para ello ejecutamos desde la
+   terminal los siguientes comandos:
+   
+   `sudo apt install -y wget unzip make gcc build-essential`
+   `sudo apt install -y php php-cli php-common libapache2-mod-php apache2-utils sendmail inotify-tools`
 
-  * Para instalação em português, escolha [br].
-  * 要使用中文进行安装, 请选择 [cn].
-  * Fur eine deutsche Installation wohlen Sie [de].
-  * Για εγκατάσταση στα Ελληνικά, επιλέξτε [el].
-  * For installation in English, choose [en].
-  * Para instalar en Español , eliga [es].
-  * Pour une installation en français, choisissez [fr]
-  * A Magyar nyelvű telepítéshez válassza [hu].
-  * Per l'installazione in Italiano, scegli [it].
-  * 日本語でインストールします．選択して下さい．[jp].
-  * Voor installatie in het Nederlands, kies [nl].
-  * Aby instalować w języku Polskim, wybierz [pl].
-  * Для инструкций по установке на русском ,введите [ru].
-  * Za instalaciju na srpskom, izaberi [sr].
-  * Türkçe kurulum için seçin [tr].
+2: Procedemos a instalar OSSEC, ejecutando en la terminal nuevamente los siguientes comandos:
+
+   `export VER="3.1.0"`
+   `wget https://github.com/ossec/ossec-hids/archive/${VER}.tar.gz`
+   
+3: Extraemos en el directorio que queramos el archivo, y desde el terminal, en el directorio de instalación, ejectuamos:
+
+   `sudo sh install.sh`
+
+4: Seguir los pasos de instalación que te indique el programa, empezando por elegir el idioma (nosostros lo hemos instalado en español).
+
+### Elige el idioma de instalación.
   
   **(en/br/cn/de/el/es/fr/hu/it/jp/nl/pl/ru/sr/tr) [en]: es**
 
