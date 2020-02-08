@@ -60,10 +60,10 @@ usuario@ubuntu-18:~/3.1.0/**ossec-hids-3.1.0**$ sudo ./install.sh
     http://www.ossec.net/en/manual.html#starting
 
   
-*** 1- Que tipo de instalación desea (servidor, agente, local ó ayuda)? local ***
+**1- Que tipo de instalación desea (servidor, agente, local ó ayuda)? local**
 
 
-2- Configurando las variables de entorno de la instalación.
+ **2- Configurando las variables de entorno de la instalación.**
 
  - Eliga donde instalar OSSEC HIDS [/var/ossec]: /var/ossec
 
