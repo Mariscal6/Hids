@@ -6,6 +6,7 @@
    terminal los siguientes comandos:
    
    `sudo apt install -y wget unzip make gcc build-essential`
+   
    `sudo apt install -y php php-cli php-common libapache2-mod-php apache2-utils sendmail inotify-tools`
 
 2: Procedemos a instalar OSSEC, ejecutando en la terminal nuevamente los siguientes comandos:
