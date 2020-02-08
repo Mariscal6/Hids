@@ -70,11 +70,17 @@
 ### Ahora debería de aparecer la configuración de los directorios para los logs de OSSEC:
 
 `Estableciendo la configuración para analizar los siguientes registros:`
+
 `-- /var/log/auth.log`
+
 `-- /var/log/syslog`
+
 `-- /var/log/dpkg.log`
+
 `-- /var/log/apache2/error.log (apache log)`
+
 `-- /var/log/apache2/access.log (apache log)`
+
 `...`
 
 ### Cuando todo esté configurado, deberían de aparecernos los siguientes mensajes:
@@ -82,8 +88,12 @@
 `- Configuración finalizada correctamente.`
 
 `- Para comenzar OSSEC HIDS:`
+
    `/var/ossec/bin/ossec-control start`
+   
 `- Para detener OSSEC HIDS:`
+
    `var/ossec/bin/ossec-control stop`
+   
 `- La configuración puede ser leída ó mofificada en /var/ossec/etc/ossec.conf`
 
