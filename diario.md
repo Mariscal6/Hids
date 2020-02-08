@@ -4,4 +4,4 @@
    
    - Instalamos Hids (mirar README.md)
    
-   - Descargar MV en () con todo instalado.
+   - Descargar MV en (enlace.com) con todo instalado.
