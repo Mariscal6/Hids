@@ -71,19 +71,17 @@ usuario@ubuntu-18:~/3.1.0/**ossec-hids-3.1.0**$ sudo ./install.sh
 
 **3- Configurando el sistema OSSEC HIDS.**
 
-    3.1- Desea recibir notificación por correo electrónico? (s/n) [s]: s
-         - Cuál es su dirección de correo electrónico? tfghids@gmail.com
+   3.1- Desea recibir notificación por correo electrónico? (s/n) [s]: s
+     - Cuál es su dirección de correo electrónico? tfghids@gmail.com
 
-         - Hemos encontrado su servidor de correo (SMTP): alt4.gmail-smtp-in.l.google.com.
-         - Desea usarlo? (s/n) [s]: s
+     - Hemos encontrado su servidor de correo (SMTP): alt4.gmail-smtp-in.l.google.com.
+     - Desea usarlo? (s/n) [s]: s
+     
+   3.2- Desea Usted agregar el servidor de integridad del sistema? (s/n) [s]: s
 
+       - Ejecutando syscheck (servidor de integridad del sistema).
 
-
-    3.2- Desea Usted agregar el servidor de integridad del sistema? (s/n) [s]: s
-
-        - Ejecutando syscheck (servidor de integridad del sistema).
-
-    3.3- Desea Usted agregar el sistema de detección de rootkit? (s/n) [s]: s
+   3.3- Desea Usted agregar el sistema de detección de rootkit? (s/n) [s]: s
 
    - Ejecutando rootcheck (sistema de detección de rootkit).
 
