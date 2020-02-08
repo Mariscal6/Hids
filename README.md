@@ -2,88 +2,56 @@
 
 ## Instalación OSSEC
 
-1: Primero, debemos de instalar los programas de los que depende OSSEC, como PHP, gcc, libc y Apache. Para ello ejecutamos desde la
+- Primero, debemos de instalar los programas de los que depende OSSEC, como PHP, gcc, libc y Apache. Para ello ejecutamos desde la
    terminal los siguientes comandos:
    
    `sudo apt install -y wget unzip make gcc build-essential`
    
    `sudo apt install -y php php-cli php-common libapache2-mod-php apache2-utils sendmail inotify-tools`
 
-2: Procedemos a instalar OSSEC, ejecutando en la terminal nuevamente los siguientes comandos:
+- Procedemos a instalar OSSEC, ejecutando en la terminal nuevamente los siguientes comandos:
 
    `export VER="3.1.0"`
+   
    `wget https://github.com/ossec/ossec-hids/archive/${VER}.tar.gz`
    
-3: Extraemos en el directorio que queramos el archivo, y desde el terminal, en el directorio de instalación, ejectuamos:
+- Extraemos en el directorio que queramos el archivo, y desde el terminal, en el directorio de instalación, ejectuamos:
 
    `sudo sh install.sh`
 
-4: Seguir los pasos de instalación que te indique el programa, empezando por elegir el idioma (nosostros lo hemos instalado en español).
+- Seguir los pasos de instalación que te indique el programa, empezando por elegir el idioma (nosostros lo hemos instalado en español).
+  Estos son los pasos que hemos 
 
-### Elige el idioma de instalación.
-  
-  **(en/br/cn/de/el/es/fr/hu/it/jp/nl/pl/ru/sr/tr) [en]: es**
+### 1: Elige el idioma de instalación.
 
- OSSEC HIDS v3.1.0 Guión de instalación - http://www.ossec.net
+`> es`
 
-  - Sistema: Linux ubuntu-18 4.15.0-76-generic
-  - Usuario: root
-  - servidor: ubuntu-18
+### 2: Que tipo de instalación desea (servidor, agente, local ó ayuda)? 
 
-
-### 1- Que tipo de instalación desea (servidor, agente, local ó ayuda)? ayuda
-
-  - Tiene tres posibilidades de instalación: servidor, 
-    agente ó local.
-
-    - Si elige 'servidor' será capaz de analizar todo  los registros, 
-      crear  notificaciónes de correo y respuestas, así como también 
-      recibir registros desde equipos syslog  remotos y otros sistemas  
-      ejecutando  el  'agente' (que transmitirá el tráfico cifrado hacia el servidor).
-       
-    - Si elige 'agente'(cliente) será capaz de leer
-      registros  locales (syslog, snort, apache, etc) y
-      retrasmitirlos al servidor de analysis.
-
-    - Si elige 'local' será capaz de todo lo que hace 
-      la instalación de 'servidor', excepto recibir mensajes remotos de los
-      agentes ó fuentes externas de syslog.
-
-    - Elija 'servidor' si desea instalar un servidor de registros
-      ó análisis.
-
-    - Elija 'agente' si dispone de otra máquina ejecutando el servidor
-      de lectura de registros y desea transmitir los registros para su
-      análisis. (ideal para servidore WEB, base de datos, etc)
-
-    -Elija 'local' si tiene que monitorizar un solo sistema .
-
-  - Para más información dirijase a:
-    http://www.ossec.net/en/manual.html#starting
-
-  
-**1- Que tipo de instalación desea (servidor, agente, local ó ayuda)? local**
+`> local`
 
 
-**2- Configurando las variables de entorno de la instalación.**
+### 3: Elija donde instalar OSSEC HIDS [/var/ossec]: /var/ossec
 
- - Eliga donde instalar OSSEC HIDS [/var/ossec]: /var/ossec
+`> /var/ossec`
 
-    - La instalación se realizará en  /var/ossec .
+### 3.1- Desea recibir notificación por correo electrónico? (s/n) [s]: 
 
-**3- Configurando el sistema OSSEC HIDS.**
+`> s`
 
-   3.1- Desea recibir notificación por correo electrónico? (s/n) [s]: s
-     - Cuál es su dirección de correo electrónico? tfghids@gmail.com
+### Cuál es su dirección de correo electrónico? 
 
-     - Hemos encontrado su servidor de correo (SMTP): alt4.gmail-smtp-in.l.google.com.
-     - Desea usarlo? (s/n) [s]: s
+`> correo@ejemplo.com`
+
+### Hemos encontrado su servidor de correo (SMTP): alt4.gmail-smtp-in.l.google.com. Desea usarlo? (s/n) [s]: 
+
+`> s`
      
-   3.2- Desea Usted agregar el servidor de integridad del sistema? (s/n) [s]: s
+### 3.2- Desea Usted agregar el servidor de integridad del sistema? (s/n) [s]: 
 
-       - Ejecutando syscheck (servidor de integridad del sistema).
+`> s`
 
-   3.3- Desea Usted agregar el sistema de detección de rootkit? (s/n) [s]: s
+### 3.3- Desea Usted agregar el sistema de detección de rootkit? (s/n) [s]: s
 
    - Ejecutando rootcheck (sistema de detección de rootkit).
 
