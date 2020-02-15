@@ -1,0 +1,18 @@
+# Instalacion xdebug
+
+sudo apt-get install php5-xdebug
+cd /etc/php/7.2/apache2/conf.d
+
+sudo gedit 20-xdebug.ini
+
+zend_extension=/usr/lib/php/20170718/xdebug.so -------------> la ruta de xdebug so
+xdebug.remote_enable=On
+xdebug.remote_host=»localhost»
+xdebug.remote_port=9000
+xdebug.remote_handler=»dbgp»
+xdebug.remote_autostart=1
+xdebug.remote_log=»/tmp/xdebug.log
+
+sudo service apache2 restart
+
+En sublime instalamos el controlador de paquetes e instalamos xdebug.
