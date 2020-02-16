@@ -1,6 +1,6 @@
 # Instalacion xdebug
 
-sudo apt-get install php5-xdebug
+sudo apt-get install php-xdebug
 cd /etc/php/7.2/apache2/conf.d
 
 sudo gedit 20-xdebug.ini
