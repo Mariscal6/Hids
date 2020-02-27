@@ -1,0 +1,68 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <img src="img/ossec.png" width="50px" height="50px">
+        </div>
+        <div class="sidebar-brand-text mx-2">OSSEC Admin</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading justify-content-center">
+        Navigate
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="index" aria-expanded="true" aria-controls="collapseTwo">
+          <span>Main</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="search" aria-expanded="true" aria-controls="collapseTwo">
+          <span>Search</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="integrity" aria-expanded="true" aria-controls="collapseTwo">
+          <span>Integrity Checking</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="stats" aria-expanded="true" aria-controls="collapseTwo">
+          <span>Stats</span>
+        </a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="about" aria-expanded="true" aria-controls="collapseTwo">
+          <span>About</span>
+        </a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
