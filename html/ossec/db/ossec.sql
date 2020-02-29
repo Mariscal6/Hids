@@ -44,8 +44,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`username`, `password`, `email`, `id`, `role`) VALUES
 ('admin', 'admin', 'admin@admin.com', 1, 'admin'),
-('adrian', 'adrian', 'adrian@ossec.com', 2, 'user'),
-('guillermo', 'guillermo', 'guillermo@ossec.com', 4, 'user');
+('adrian', 'adrian', 'adrian@ossec.com', 2, 'user');
 
 --
 -- Índices para tablas volcadas
