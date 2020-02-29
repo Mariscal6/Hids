@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-02-2020 a las 22:47:59
+-- Tiempo de generación: 29-02-2020 a las 22:53:56
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ossec`
 --
+CREATE DATABASE IF NOT EXISTS `ossec` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `ossec`;
 
 -- --------------------------------------------------------
 
