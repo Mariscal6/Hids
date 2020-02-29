@@ -14,23 +14,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-/*$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$email = $_POST['email'];
+echo $email;
+$password = $_POST['password'];
+
+$sql = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
 $result = $conn->query($sql);
+echo $sql;
 
 if ($result->num_rows > 0) {
-    // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        echo "Logged in as: " . $row["username"];
+        $_SESSION['username'] = $row["username"];
+        $_SESSION['login'] = true;
+        $_SESSION['role'] = $row["role"];
     }
-} else {
-    echo "0 results";
 }
-$conn->close();*/
 
-if (isset($_SESSION['username'])) {
-
-} else {
-    header('Location: login.php');
-}
+header( "Location: ../index.php" );
 
 ?>

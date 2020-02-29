@@ -1,4 +1,5 @@
 <?php require('includes/config.php'); ?>
+<?php require('includes/loadReports.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Stats</title>
+  <title>Admin - Reports</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,44 +47,39 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Stats</h1>
+            <h1 class="h3 mb-0 text-gray-800">Reports</h1>
+          </div>
+
+          <!-- All Read -->
+          <div id="reportsRead" class="row" hidden>
+            <div class="col-md-6 justify-content-center">
+                <span>
+                <a href="index" class="btn btn-success btn-circle btn-lg">
+                    <i class="fas fa-check"></i>
+                </a> &nbsp&nbsp No new reports!
+                </span>
+            </div>
           </div>
 
           <!-- Card -->
           <div class="row">
             <div class="col-lg-12">
-              <div id="main-stats" class="card show mb-4">
+              <div name="reportCard" id="report1" class="card show mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Today's Reports</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Report from: adrian</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="position: absolute; transform: translate3d(-156px, 19px, 0px); top: 0px; left: 0px; will-change: transform;">
                       <div class="dropdown-header">Options</div>
-                      <a class="dropdown-item" affects="main-stats" onclick="hideCard(this)">Hide</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" affects="report1" onclick="hideCard(this)">Hide</a>
                     </div>
                   </div>
                 </div>
                 <div class="card-body">
-                  
-                  <h4 class="small font-weight-bold">Server Issues<span class="float-right">0%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-
-                  <h4 class="small font-weight-bold">Login Failures<span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-
-                  <h4 class="small font-weight-bold">File Modifications<span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">21:44 29/02/2020</div>
+                    <p>Yesterday I found a bug inside the application where...</p>
 
                 </div>
               </div>
@@ -91,21 +87,31 @@
           </div>
           <!-- End Card -->
 
-          <!-- Content Row -->
+          <!-- Card -->
           <div class="row">
-            
+            <div class="col-lg-12">
+              <div name="reportCard" id="report2" class="card show mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Report from: guillermo</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="position: absolute; transform: translate3d(-156px, 19px, 0px); top: 0px; left: 0px; will-change: transform;">
+                      <div class="dropdown-header">Options</div>
+                      <a class="dropdown-item" affects="report2" onclick="hideCard(this)">Hide</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">21:44 29/02/2020</div>
+                    <p>I would like to file a petition to become administrator for this platform.</p>
+
+                </div>
+              </div>
+            </div>
           </div>
-
-          <!-- Content Row -->
-
-          <div class="row">
-
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-          </div>
+          <!-- End Card -->
 
         </div>
         <!-- /.container-fluid -->

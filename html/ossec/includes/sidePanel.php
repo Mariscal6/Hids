@@ -19,38 +19,61 @@
         Navigate
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item -->
       <li class="nav-item">
         <a class="nav-link" href="index" aria-expanded="true" aria-controls="collapseTwo">
           <span>Main</span>
         </a>
       </li>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item -->
       <li class="nav-item">
         <a class="nav-link" href="search" aria-expanded="true" aria-controls="collapseTwo">
           <span>Search</span>
         </a>
       </li>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item -->
       <li class="nav-item">
         <a class="nav-link" href="integrity" aria-expanded="true" aria-controls="collapseTwo">
           <span>Integrity Checking</span>
         </a>
       </li>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item -->
       <li class="nav-item">
         <a class="nav-link" href="stats" aria-expanded="true" aria-controls="collapseTwo">
           <span>Stats</span>
         </a>
       </li>
 
+      <?php
+      if (isset($_SESSION['login'])) {
+        if (isset($_SESSION['role'])) {
+          if ($_SESSION['role'] == 'admin') {
+            echo '<!-- Nav Item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="viewReports" aria-expanded="true" aria-controls="collapseTwo">
+                      <span>Reports</span>
+                    </a>
+                  </li>';
+          } elseif($_SESSION['role'] == 'user') {
+            echo '<!-- Nav Item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="sendReport" aria-expanded="true" aria-controls="collapseTwo">
+                      <span>Send Report</span>
+                    </a>
+                  </li>';
+          }
+        }
+      }
+      ?>
+      
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item  -->
       <li class="nav-item">
         <a class="nav-link" href="about" aria-expanded="true" aria-controls="collapseTwo">
           <span>About</span>

@@ -2,6 +2,9 @@
 
 echo '
 
+<!-- Font Awesome --> 
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -18,6 +21,12 @@ echo '
 <!-- Page level custom scripts -->
 <script src="js/demo/chart-area-demo.js"></script>
 <script src="js/demo/chart-pie-demo.js"></script>
+
+<!-- Card user-defined scripts -->
+<script src="js/cardActions.js"></script>
+
+<!-- Admin reports -->
+<script src="js/adminReports.js"></script>
 
 ';
 
