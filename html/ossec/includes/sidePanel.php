@@ -68,6 +68,21 @@
         }
       }
       ?>
+
+      <?php
+      if (isset($_SESSION['login'])) {
+        if (isset($_SESSION['role'])) {
+          if ($_SESSION['role'] == 'admin') {
+            echo '<!-- Nav Item -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="manageUsers" aria-expanded="true" aria-controls="collapseTwo">
+                      <span>Manage Users</span>
+                    </a>
+                  </li>';
+          }
+        }
+      }
+      ?>
       
 
       <!-- Divider -->

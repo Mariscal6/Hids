@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-02-2020 a las 22:53:56
+-- Tiempo de generación: 01-03-2020 a las 15:43:32
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -30,6 +30,7 @@ USE `ossec`;
 -- Estructura de tabla para la tabla `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -44,7 +45,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`username`, `password`, `email`, `id`, `role`) VALUES
 ('admin', 'admin', 'admin@admin.com', 1, 'admin'),
-('adrian', 'adrian', 'adrian@ossec.com', 2, 'user');
+('adrian', 'adrian', 'adrian@ossec.com', 2, 'user'),
+('guillermo', 'guillermo', 'guillermo@ossec.com', 4, 'user'),
+('daniel', 'daniel', 'daniel@ossec.com', 5, 'user');
 
 --
 -- Índices para tablas volcadas

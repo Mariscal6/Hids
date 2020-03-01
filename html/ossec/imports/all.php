@@ -28,6 +28,12 @@ echo '
 <!-- Admin reports -->
 <script src="js/adminReports.js"></script>
 
+<!-- Login / Register -->
+<script src="js/login.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
 ';
 
 ?>
