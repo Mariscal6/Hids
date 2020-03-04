@@ -20,6 +20,9 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <!-- Custom Colors -->
+  <?php require('imports/allCSS.php'); ?>
+
 </head>
 
 <body id="page-top">
@@ -50,8 +53,15 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
-            
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Updated 04/003/2020</h6>
+            </div>
+            <div class="card-body">
+              <p>This project is being made with the OSSEC trademark, as a Univeristy project in the UCM, Spain, Madrid.</p>
+              <p>The license which this project is currently being developed under is the MIT License.</p>
+              <p>It is possible than in the far future this project may have a redistribution under another license.</p>
+            </div>
           </div>
 
           <!-- Content Row -->

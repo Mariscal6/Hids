@@ -17,10 +17,11 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <?php require('imports/allCSS.php'); ?>
-
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom Colors -->
+  <?php require('imports/allCSS.php'); ?>
 
 </head>
 
@@ -50,29 +51,83 @@
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Search</h1>
           </div>
-
+          
           <!-- Content Row -->
           <div class="row">
-            <div class="col-lg-10">
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm" aria-hidden="true"></i>
-                </button>
+            <div class="col-lg-12">
+              <div id="main-stats" class="card show mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Search Settings</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="position: absolute; transform: translate3d(-156px, 19px, 0px); top: 0px; left: 0px; will-change: transform;">
+                      <div class="dropdown-header">Options</div>
+                      <a class="dropdown-item" affects="main-stats" onclick="hideCard(this)">Hide</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Date History</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected disabled>Today</option>
+                    <option value="1">Yesterday</option>
+                    <option value="2">Last Week</option>
+                    <option value="3">Last Month</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Alert Level&nbsp&nbsp&nbsp</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected disabled>5 or Lower</option>
+                    <option value="1">6</option>
+                    <option value="2">7</option>
+                    <option value="3">8</option>
+                    <option value="3">9 or Higher</option>
+                  </select>
+                </div>
+                </div>
               </div>
-            </div>
-          </form>
             </div>
           </div>
 
-          
-
           <!-- Content Row -->
-
           <div class="row">
-
+            <div class="col-lg-12">
+              <div id="main-stats" class="card show mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Search Results</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="position: absolute; transform: translate3d(-156px, 19px, 0px); top: 0px; left: 0px; will-change: transform;">
+                      <div class="dropdown-header">Options</div>
+                      <a class="dropdown-item" affects="main-stats" onclick="hideCard(this)">Hide</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                
+                <p class="text-center">No Results.</p>
+                
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Content Row -->

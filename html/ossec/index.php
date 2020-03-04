@@ -54,7 +54,7 @@
           <!-- Content Row -->
           <div class="row">
             <div class="col-xl-6 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-header">
                   <h6 class="m-0 font-weight-bold text-primary">Available Agents</h6>
                 </div>
@@ -70,7 +70,7 @@
               </div>
             </div>
             <div class="col-xl-6 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-header">
                   <h6 class="m-0 font-weight-bold text-primary">Latest Modified Files</h6>
                 </div>

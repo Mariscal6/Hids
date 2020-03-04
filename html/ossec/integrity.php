@@ -20,6 +20,9 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <!-- Custom Colors -->
+  <?php require('imports/allCSS.php'); ?>
+
 </head>
 
 <body id="page-top">

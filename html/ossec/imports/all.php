@@ -34,6 +34,11 @@ echo '
 <!-- DataTables -->
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
+<!-- Charts -->
+
+<script type="text/javascript" charset="utf8" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+
 ';
 
 ?>
