@@ -3,17 +3,17 @@
 ## ARQUITECTURA
 
 OSSEC está compuesto de múltiples piezas:
-	###GERENTE
+	### GERENTE
 		Almacena las bases de datos de comprobación de integridad de archivos, los registros, los eventos y las entradas de auditoría del sistema. Todas las reglas, decodificadores y las principales opciones de configuración se almacenan centralmente en el administrador
 		Los agentes se conectan al servidor en el puerto 1514 / udp. Se debe permitir la comunicación a este puerto para que los agentes se comuniquen con el servidor.
-	###AGENTES
+	### AGENTES
 		El agente es un pequeño programa, o colección de programas, instalado en los sistemas a monitorear. El agente recopilará información y la enviará al gerente para su análisis y correlación.
 		Nota: OSSEC solo se puede instalar como agente en plataformas Microsoft Windows. Estos sistemas requerirán un servidor OSSEC, que se ejecute en Linux u otro sistema similar a Unix.
-	###SIN AGENTES
+	### SIN AGENTES
 		Para los sistemas en los que no se puede instalar un agente, el soporte sin agente puede permitir que se realicen verificaciones de integridad. Los escaneos sin agente se pueden usar para monitorear firewalls, enrutadores e incluso sistemas Unix.
-	###VIRTUALIZACIÓN/VMWARE
+	### VIRTUALIZACIÓN/VMWARE
 		OSSEC le permite instalar el agente en los sistemas operativos invitados. También se puede instalar dentro de algunas versiones de VMWare ESX.
-	###FIREWALLS, SWITCHES Y ROUTERS
+	### FIREWALLS, SWITCHES Y ROUTERS
 		OSSEC puede recibir y analizar eventos de syslog de una gran variedad de firewalls, conmutadores y enrutadores.
 
 
@@ -25,11 +25,11 @@ Se realiza dentro de OSSEC por el recolector de registros y los procesos analiza
 ### Opciones de configuración
 Estas opciones deben especificarse localmente en el archivo ossec.conf de cada agente o en el recurso compartido agent.conf. Dentro del <localfile> elemento, puede tener las siguientes opciones.
 
-*<location>
+* <location>
 	Especifica la ubicación del registro que se leerá. Los formatos de strftime pueden usarse para nombres de archivos de registro
 	Default: /var/log/messages
 	Valor permitido: Cualquier fichero log
-*<log_format>:
+* <log_format>:
 	El formato del registro que se lee.
 	Default: syslog
 	Valores permitidos:
@@ -49,20 +49,20 @@ Estas opciones deben especificarse localmente en el archivo ossec.conf de cada a
 		*djb-multilog
 		*multi-line: Esta opción permitirá monitorear las aplicaciones que registran varias líneas por evento. Este formato requiere que el número de líneas sea consistente. Será seguido por el número de líneas en cada entrada de registro. Cada línea se combinará con las líneas anteriores hasta que todas las líneas estén reunidas en una sola
 		*multi-line_indented: Este formato de registro acepta registros que abarcan varias líneas con líneas posteriores que comienzan con un espacio o una pestaña.
-*<command>
+* <command>
 	El comando a ejecutar. Todos los resultados de este comando se leerán como uno o más mensajes de registro dependiendo de si se usa el comando o full_command.
 	Valores permitidos: Cualquier línea de comando y argumentos.
-*<alias>
+* <alias>
 	Un alias para identificar el comando. Este reemplazará el comando en el mensaje que muestre el registro.
-*<frequency>
+* <frequency>
 	El tiempo mínimo en segundos entre ejecuciones de comandos. Esto se usa con command y full_command.
 	Valores permitidos: Tiempo en segundos.
-*<check_diff>
+* <check_diff>
 	La salida de un evento se almacenará en una base de datos interna. Cada vez que se recibe el mismo evento, la salida se compara con la salida anterior. Si la salida ha cambiado, se generará una alerta.
-*<only-future-events>
+* <only-future-events>
 	Solo se usa con el eventchannel de registro. OSSEC solo recibirá eventos que ocurrieron después del inicio de logcollector.
 	Valor permitidos: Yes/No
-*<query>
+* <query>
 	Solo se usa con el eventchannel de registro. Es posible especificar una consulta XPATH siguiendo el esquema de eventos para filtrar los eventos que procesará OSSEC.
 	
 ### Supervisión de procesos
@@ -83,82 +83,82 @@ ossec-syscheckdes capaz de verificar la integridad del archivo en tiempo casi re
 
 ### Opciones de configuración
 Estas opciones de configuración se pueden especificar en el archivo ossec.conf de cada agente, a excepción de auto_ignore y alert_new_file que se aplican a las instalaciones locales y de administrador. La opción ignore se aplica a todos los agentes si se especifica en el administrador.
-*<directories>
+* <directories>
 	Usar esta opción para agregar o eliminar directorios a monitorear (deben estar separados por comas). Todos los archivos y subdirectorios también serán monitoreados. Como mínimo, el '.' debe incluirse ( D:\.). Esto debe establecerse en el sistema que desea monitorear (o en agent.conf, si corresponde)
 	Default: /etc,/usr/bin,/usr/sbin,/bin,/sbin
 	Atributos:
-		*realtime: Value=yes
+		* realtime: Value=yes
 			Esto permitirá el monitoreo en tiempo real / continuo en Linux (usando las llamadas al sistema de inotify) y sistemas Windows.
-		*report_changes: Value=yes
+		* report_changes: Value=yes
 			Informa diferencias de cambios de archivo. Esto está limitado a archivos de texto en este momento. Solo esta para UNIX
-		*check_sha1sum: Value=yes
+		* check_sha1sum: Value=yes
 			Cuando se usa, solo se verificará el hash sha1 de los archivos.
-		*check_md5sum: Value=yes
+		* check_md5sum: Value=yes
 			Se comprobará el hash md5 de los archivos.
-		*check_sum: Value=yes
+		* check_sum: Value=yes
 			Verifique los hash md5 y sha1 de los archivos serán verificados. Esto es lo mismo que usar check_sha1sum = "yes" y check_md5sum = "yes"
-		*check_size: Value=yes
+		* check_size: Value=yes
 			Se verificará el tamaño de los archivos.
-		*check_owner: Value=yes
+		* check_owner: Value=yes
 			Verifica el propietario de los archivos seleccionados.
-		*check_group: Value=yes
+		* check_group: Value=yes
 			Verifica el propietario del grupo de los archivos / directorios seleccionados.
-		*check_perm: Value=yes
+		* check_perm: Value=yes
 			Verifique el permiso UNIX de los archivos / directorios seleccionados. En Windows, esto solo verificará los permisos POSIX
-		*check_all: Value=yes
+		* check_all: Value=yes
 			Todas las siguientes opciones check_ * se usan juntas a menos que una opción específica se anule explícitamente con "no".
-		*restrict: Value=string
+		* restrict: Value=string
 			Una cadena que limitará las verificaciones a los archivos que contienen esa cadena en el nombre del archivo.
 			Valores permitidos: cualquier directorio o nombre de archivo (pero no una ruta)
-		*no_recurse: Value=no (Nuevo en la versión 3.2.)
+		* no_recurse: Value=no (Nuevo en la versión 3.2.)
 			 No recurrir al directorio definido.
-*<ignore>
+* <ignore>
 	Lista de archivos o directorios a ignorar (una entrada por elemento). Los archivos y directorios aún se verifican, pero los resultados se ignoran.
 	Default: /etc/mtab
 	Atributos:
-		*type : Value=sregex
+		* type : Value=sregex
 			Este es un patrón de expresión regular simple para filtrar archivos para que no se generen alertas.
 	Valores permitidos: Cualquier nombre de directorio o fichero
-*<nodiff> Nuevo en la versión 3.0.
+* <nodiff> Nuevo en la versión 3.0.
 	Lista de archivos para no adjuntar un diff. Los archivos aún están marcados, pero no se calculan diferencias. Esto permite monitorear archivos confidenciales como la clave privada o la configuración de la base de datos sin filtrar datos confidenciales a través de alertas.
 	Atributos:
-		*type : Value=sregex
+		* type : Value=sregex
 	Valores permitidos: Cualquier nombre de directorio o fichero
-*<frequency>
+* <frequency>
 	Frecuencia de ejecución del syscheck (en segundos).
 	Default: 21600
 	Valores permitidos: Tiempo en segundos
-*<scan_time>
+* <scan_time>
 	Hora de ejecutar los escaneos (puede estar en los formatos de 21 p.m., 8:30, 12 a.m., etc.)
 	Valores permitidos: Tiempo para ejecutar el escaneo
-*<scan_day>
+* <scan_day>
 	Día de la semana para ejecutar los escaneos (puede estar en formato de domingo, sábado, lunes, etc.)
 	Valores permitidos: día de la semana
-*<auto_ignore>
+* <auto_ignore>
 	Especifica si syscheck ignorará los archivos que cambian con demasiada frecuencia (después del tercer cambio)
 	Default: sí
 	Valores permitidos: sí / no
 	Válido: servidor, local
-*<alert_new_files>
+* <alert_new_files>
 	Especifica si syscheck debería alertar sobre los nuevos archivos creados. Los archivos nuevos solo se detectarán en un análisis completo, esta opción no funciona en tiempo real.
 	Default: no
 	Valores permitidos: sí / no
 	Válido: servidor, local
-*<scan_on_start>
+* <scan_on_start>
 	Especifica si syscheck debe realizar el primer escaneo tan pronto como se inicie.
 	Default: sí
 	Valores permitidos: sí / no
-*<windows_registry>
+* <windows_registry>
 	Usa esta opción para agregar entradas de registro de Windows que se supervisarán (solo en Windows). Las nuevas entradas no activarán alertas, solo cambios en las entradas existentes.
 	Default: HKEY_LOCAL_MACHINESoftware
-	Valores permitidos: cualquier entrada de registro (una por elemento)
-*<registry_ignore>
+ 	Valores permitidos: cualquier entrada de registro (una por elemento)
+* <registry_ignore>
 	Lista de entradas del registro que se ignorarán.
 	Default: ..CryptographyRNG
 	Valores permitidos: cualquier entrada de registro (una por elemento)
-*<prefilter_cmd> 
+* <prefilter_cmd> 
 	Comando para ejecutar para evitar que la vinculación previa cree falsos positivos. Esta opción puede afectar negativamente el rendimiento. El comando configurado se ejecutará para todos y cada uno de los archivos marcados.
-*<skip_nfs> Nuevo en la versión 2.9.0.
+* <skip_nfs> Nuevo en la versión 2.9.0.
 	Especifica si syscheck debe escanear sistemas de archivos montados en red. Funciona en Linux y FreeBSD. Actualmente, skip_nfs anulará las comprobaciones que se ejecutan en montajes CIFS o NFS.
 	Default: no
 	Valores permitidos: sí / no
@@ -198,85 +198,85 @@ Realizará la detección de rootkits en todos los sistemas donde esté instalado
 	
 ### Opciones de configuración
 Estas opciones de configuración se pueden especificar en el archivo ossec.conf de cada agente, a excepción de auto_ignore y alert_new_file que se aplican a las instalaciones locales y de administrador. La opción ignore se aplica a todos los agentes si se especifica en el administrador.
-*<base_directory>
+* <base_directory>
 	El directorio base que se agregará a las siguientes opciones:
-		*rootkit_files
-		*rootkit_trojans
-		*windows_malware
-		*windows_audit
-		*windows_apps
-		*sistemas_auditoría
+		* rootkit_files
+		* rootkit_trojans
+		* windows_malware
+		* windows_audit
+		* windows_apps
+		* sistemas_auditoría
 	Valores permitidos: ruta a un directorio
 	Default: /var/ossec
-*<rootkit_files>
+* <rootkit_files>
 	Esta opción se puede usar para cambiar la ubicación de la base de datos de los archivos rootkit.
 	Valores permitidos: un archivo con las firmas de los archivos rootkit
 	Default: /etc/shared/rootkit_files.txt
-*<rootkit_trojans>
+* <rootkit_trojans>
 	Esta opción se puede usar para cambiar la ubicación de la base de datos de troyanos rootkit.
 	Valores permitidos: un archivo con las firmas de los troyanos
 	Default: /etc/shared/rootkit_trojans.txt
-*<windows_audit>
-*<system_audit>
-*<windows_apps>
-*<windows_malware>
-*<scanall>
+* <windows_audit>
+* <system_audit>
+* <windows_apps>
+* <windows_malware>
+* <scanall>
 	Le dice a rootcheck que escanee todo el sistema (puede dar lugar a algunos falsos positivos).
 	Default: no
 	Valores permitidos: sí / no
-*<frequency>
+* <frequency>
 	Frecuencia con la que se va a ejecutar el rootcheck (en segundos).
 	Default: 36000 (10 horas)
 	Valores permitidos: Tiempo (en segundos)
-*<disabled>
+* <disabled>
 	Deshabilita la ejecución de rootcheck.
 	Default: no
 	Valores permitidos: sí / no
-*<check_dev>
+* <check_dev>
 	Activa o desactiva la comprobación de archivos en el sistema de archivos /dev
 	Default: si
 	Valores permitidos: sí / no
-*<check_files>
+* <check_files>
 	Habilita o deshabilita la comprobación basada en los archivos rootkit
 	Default: si
 	Valores permitidos: sí / no
-*<check_if>	
+* <check_if>	
 	Activar o desactivar la comprobación de las interfaces de red.
 	Default: si
 	Valores permitidos: sí / no
-*<check_pids>
+* <check_pids>
 	Habilitar o deshabilitar la comprobación de ID de proceso
 	Default: si
 	Valores permitidos: sí / no
-*<check_ports>
+* <check_ports>
 	Activa o desactiva la comprobación de los puertos de red.
 	Default: si
 	Valores permitidos: sí / no
-*<check_sys>
+* <check_sys>
 	Activa o desactiva la comprobación del sistema de archivos en busca de posibles problemas
 	Default: si
 	Valores permitidos: sí / no
-*<check_trojans>
+* <check_trojans>
 	Habilita o deshabilita la comprobación de troyanos.
 	Default: sí
 	Valores permitidos: sí / no
-*<check_unixaudit>
+* <check_unixaudit>
 	Habilitar o deshabilitar la comprobación de problemas de Unix
 	Default: sí
 	Valores permitidos: sí / no
-*<check_winapps>
+* <check_winapps>
 	Habilitar o deshabilitar la comprobación de aplicaciones de Windows
 	Default: sí
 	Valores permitidos: sí / no
-*<check_winaudit>
+* <check_winaudit>
 	Habilitar o deshabilitar la comprobación de problemas de Windows
 	Default: 1
 	Valores permitidos: 1 / 0
-*<check_winmalware>
+* <check_winmalware>
 	Active o desactive la comprobación de malware de Windows.
 	Default: sí
 	Valores permitidos: sí / no
-*<skip_nfs> Nuevo en la versión 2.9.0.
+* <skip_nfs> Nuevo en la versión 2.9.0.
 	Especifica si rootcheck debe escanear sistemas de archivos montados en red. Funciona en Linux y FreeBSD. Actualmente, skip_nfs anulará las comprobaciones que se ejecutan en montajes CIFS o NFS.
 	Default: no
 	Valores permitidos: sí / no
@@ -299,19 +299,19 @@ Permite búsquedas de CDB desde dentro de las reglas en OSSEC (ossec-analysisd) 
 
 ### Sintaxis para listas CDB
 
-*Reglas
+* Reglas
 	Una regla usaría la siguiente sintaxis para buscar una clave dentro de una base de datos CDB:
 		```html
 		<list  field = "" otros atributos>  reglas/registros </list>
 		```
-*ossec.conf 
+* ossec.conf 
 	Cada lista necesitará ser definida y se le pedirá que esté disponible usando el archivo ossec.conf. Usando la siguiente sintaxis:
 		```html
 		<ossec_config> 
 			<rules> 
 				<list> reglas / registros </list>
 		```
-*Comandos 
+* Comandos 
 	Los archivos CDB deben compilarse antes de que puedan usarse. El comando ossec-makelists procesará y compilará todas las listas si se han cambiado las reglas del texto maestro
 * Formato de archivo de texto de lista
 	Será en formato clave:valor
