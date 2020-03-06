@@ -1,25 +1,26 @@
 # Manual de Ossec 
 
 ## ARQUITECTURA
-OSSEC está compuesto de múltiples piezas
+OSSEC está compuesto de múltiples piezas:
 
 ### GERENTE
-	Almacena las bases de datos de comprobación de integridad de archivos, los registros, los eventos y las entradas de auditoría del sistema. Todas las reglas, decodificadores y las principales opciones de configuración se almacenan centralmente en el administrador
-	Los agentes se conectan al servidor en el puerto 1514 / udp. Se debe permitir la comunicación a este puerto para que los agentes se comuniquen con el servidor.
+Almacena las bases de datos de comprobación de integridad de archivos, los registros, los eventos y las entradas de auditoría del sistema. Todas las reglas, decodificadores y las principales opciones de configuración se almacenan centralmente en el administrador
+
+Los agentes se conectan al servidor en el puerto 1514 / udp. Se debe permitir la comunicación a este puerto para que los agentes se comuniquen con el servidor.
 	
 ### AGENTES
-	El agente es un pequeño programa, o colección de programas, instalado en los sistemas a monitorear. El agente recopilará información y la enviará al gerente para su análisis y correlación.
-	Nota: OSSEC solo se puede instalar como agente en plataformas Microsoft Windows. Estos sistemas requerirán un servidor OSSEC, que se ejecute en Linux u otro sistema similar a Unix.
+El agente es un pequeño programa, o colección de programas, instalado en los sistemas a monitorear. El agente recopilará información y la enviará al gerente para su análisis y correlación.
+
+Nota: OSSEC solo se puede instalar como agente en plataformas Microsoft Windows. Estos sistemas requerirán un servidor OSSEC, que se ejecute en Linux u otro sistema similar a Unix.
 
 ### SIN AGENTES
-	Para los sistemas en los que no se puede instalar un agente, el soporte sin agente puede permitir que se realicen verificaciones de integridad. Los escaneos sin agente se pueden usar para monitorear firewalls, enrutadores e incluso sistemas Unix.
+Para los sistemas en los que no se puede instalar un agente, el soporte sin agente puede permitir que se realicen verificaciones de integridad. Los escaneos sin agente se pueden usar para monitorear firewalls, enrutadores e incluso sistemas Unix.
 
 ### VIRTUALIZACIÓN/VMWARE
-	OSSEC le permite instalar el agente en los sistemas operativos invitados. También se puede instalar dentro de algunas versiones de VMWare ESX.
+OSSEC le permite instalar el agente en los sistemas operativos invitados. También se puede instalar dentro de algunas versiones de VMWare ESX.
 
 ### FIREWALLS, SWITCHES Y ROUTERS
-	OSSEC puede recibir y analizar eventos de syslog de una gran variedad de firewalls, conmutadores y enrutadores.
-
+OSSEC puede recibir y analizar eventos de syslog de una gran variedad de firewalls, conmutadores y enrutadores.
 
 Más información sobre la arquitectura: https://www.ossec.net/docs/docs/manual/ossec-architecture.html		
 ## ANALISIS Y REGRISTRO DE MONITOREO 
@@ -28,13 +29,13 @@ Se realiza dentro de OSSEC por el recolector de registros y los procesos analiza
 
 ### Opciones de configuración
 Estas opciones deben especificarse localmente en el archivo ossec.conf de cada agente o en el recurso compartido agent.conf. Dentro del <localfile> elemento, puede tener las siguientes opciones.
-
+	
 * <location>:
 	Especifica la ubicación del registro que se leerá. Los formatos de strftime pueden usarse para nombres de archivos de registro
 	Default: /var/log/messages
 	Valor permitido: Cualquier fichero log
 	
-* <log_format>:
+* <log_format> :
 	El formato del registro que se lee.
 	Default: syslog
 	Valores permitidos:
@@ -45,9 +46,7 @@ Estas opciones deben especificarse localmente en el archivo ossec.conf de cada a
 		* snort-fast:
 			Se usa para el formato de salida rápida de Snort.
 		* squid:
-			
 		* iis:
-			
 		* eventlog:
 			Se usa para el formato de registro de eventos de Microsoft Windows
 		* eventchannel:
@@ -65,7 +64,6 @@ Estas opciones deben especificarse localmente en el archivo ossec.conf de cada a
 		* full_command:
 			Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el <comand>. Toda la salida se tratará como un único registro. No se puede usar en agent.conf
 		* djb-multilog:
-			
 		* multi-line:
 			Esta opción permitirá monitorear las aplicaciones que registran varias líneas por evento. Este formato requiere que el número de líneas sea consistente. Será seguido por el número de líneas en cada entrada de registro. Cada línea se combinará con las líneas anteriores hasta que todas las líneas estén reunidas en una sola
 		* multi-line_indented:
