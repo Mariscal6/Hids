@@ -3,18 +3,18 @@
 ## ARQUITECTURA
 OSSEC está compuesto de múltiples piezas
 
-	### GERENTE
-		Almacena las bases de datos de comprobación de integridad de archivos, los registros, los eventos y las entradas de auditoría del sistema. Todas las reglas, decodificadores y las principales opciones de configuración se almacenan centralmente en el administrador
-		Los agentes se conectan al servidor en el puerto 1514 / udp. Se debe permitir la comunicación a este puerto para que los agentes se comuniquen con el servidor.
-	### AGENTES
-		El agente es un pequeño programa, o colección de programas, instalado en los sistemas a monitorear. El agente recopilará información y la enviará al gerente para su análisis y correlación.
-		Nota: OSSEC solo se puede instalar como agente en plataformas Microsoft Windows. Estos sistemas requerirán un servidor OSSEC, que se ejecute en Linux u otro sistema similar a Unix.
-	### SIN AGENTES
-		Para los sistemas en los que no se puede instalar un agente, el soporte sin agente puede permitir que se realicen verificaciones de integridad. Los escaneos sin agente se pueden usar para monitorear firewalls, enrutadores e incluso sistemas Unix.
-	### VIRTUALIZACIÓN/VMWARE
-		OSSEC le permite instalar el agente en los sistemas operativos invitados. También se puede instalar dentro de algunas versiones de VMWare ESX.
-	### FIREWALLS, SWITCHES Y ROUTERS
-		OSSEC puede recibir y analizar eventos de syslog de una gran variedad de firewalls, conmutadores y enrutadores.
+### GERENTE
+	Almacena las bases de datos de comprobación de integridad de archivos, los registros, los eventos y las entradas de auditoría del sistema. Todas las reglas, decodificadores y las principales opciones de configuración se almacenan centralmente en el administrador
+	Los agentes se conectan al servidor en el puerto 1514 / udp. Se debe permitir la comunicación a este puerto para que los agentes se comuniquen con el servidor.
+### AGENTES
+	El agente es un pequeño programa, o colección de programas, instalado en los sistemas a monitorear. El agente recopilará información y la enviará al gerente para su análisis y correlación.
+	Nota: OSSEC solo se puede instalar como agente en plataformas Microsoft Windows. Estos sistemas requerirán un servidor OSSEC, que se ejecute en Linux u otro sistema similar a Unix.
+### SIN AGENTES
+	Para los sistemas en los que no se puede instalar un agente, el soporte sin agente puede permitir que se realicen verificaciones de integridad. Los escaneos sin agente se pueden usar para monitorear firewalls, enrutadores e incluso sistemas Unix.
+### VIRTUALIZACIÓN/VMWARE
+	OSSEC le permite instalar el agente en los sistemas operativos invitados. También se puede instalar dentro de algunas versiones de VMWare ESX.
+### FIREWALLS, SWITCHES Y ROUTERS
+	OSSEC puede recibir y analizar eventos de syslog de una gran variedad de firewalls, conmutadores y enrutadores.
 
 
 Más información sobre la arquitectura: https://www.ossec.net/docs/docs/manual/ossec-architecture.html		
@@ -33,22 +33,22 @@ Estas opciones deben especificarse localmente en el archivo ossec.conf de cada a
 	El formato del registro que se lee.
 	Default: syslog
 	Valores permitidos:
-		*syslog: Este formato es para archivos de texto sin formato en un formato tipo syslog. También se puede usar cuando no hay soporte para el formato de registro, y los registros son mensajes de una sola línea
-		*snort-full: Se usa para el formato de salida completo de Snort.
-		*snort-fast: Se usa para el formato de salida rápida de Snort.
-		*squid
-		*iis
-		*eventlog: Se usa para el formato de registro de eventos de Microsoft Windows
-		*eventchannel: Se usa para los registros de eventos de Microsoft Windows
-		*mysql_log: Se usa para los registros de MySQL. No admite registros de varias líneas.
-		*postgresql_log: Se usa para los registros de PostgreSQL. No admite registros de varias líneas.
-		*nmapg: Se usa para monitorear archivos que se ajustan a la salida grepable de nmap .
-		*apache: Se usa para el formato de registro predeterminado de apache
-		*command: Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el [<comand>](#<comand>). Cada línea de salida se tratará como un registro separado. No se puede usar en agent.conf
-		*full_command: Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el [<comand>](#<comand>). Toda la salida se tratará como un único registro. No se puede usar en agent.conf
-		*djb-multilog
-		*multi-line: Esta opción permitirá monitorear las aplicaciones que registran varias líneas por evento. Este formato requiere que el número de líneas sea consistente. Será seguido por el número de líneas en cada entrada de registro. Cada línea se combinará con las líneas anteriores hasta que todas las líneas estén reunidas en una sola
-		*multi-line_indented: Este formato de registro acepta registros que abarcan varias líneas con líneas posteriores que comienzan con un espacio o una pestaña.
+		* syslog: Este formato es para archivos de texto sin formato en un formato tipo syslog. También se puede usar cuando no hay soporte para el formato de registro, y los registros son mensajes de una sola línea
+		* snort-full: Se usa para el formato de salida completo de Snort.
+		* snort-fast: Se usa para el formato de salida rápida de Snort.
+		* squid
+		* iis
+		* eventlog: Se usa para el formato de registro de eventos de Microsoft Windows
+		* eventchannel: Se usa para los registros de eventos de Microsoft Windows
+		* mysql_log: Se usa para los registros de MySQL. No admite registros de varias líneas.
+		* postgresql_log: Se usa para los registros de PostgreSQL. No admite registros de varias líneas.
+		* nmapg: Se usa para monitorear archivos que se ajustan a la salida grepable de nmap .
+		* apache: Se usa para el formato de registro predeterminado de apache
+		* command: Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el [<comand>](#<comand>). Cada línea de salida se tratará como un registro separado. No se puede usar en agent.conf
+		* full_command: Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el [<comand>](#<comand>). Toda la salida se tratará como un único registro. No se puede usar en agent.conf
+		* djb-multilog
+		* multi-line: Esta opción permitirá monitorear las aplicaciones que registran varias líneas por evento. Este formato requiere que el número de líneas sea consistente. Será seguido por el número de líneas en cada entrada de registro. Cada línea se combinará con las líneas anteriores hasta que todas las líneas estén reunidas en una sola
+		* multi-line_indented: Este formato de registro acepta registros que abarcan varias líneas con líneas posteriores que comienzan con un espacio o una pestaña.
 * <command>
 	El comando a ejecutar. Todos los resultados de este comando se leerán como uno o más mensajes de registro dependiendo de si se usa el comando o full_command.
 	Valores permitidos: Cualquier línea de comando y argumentos.
