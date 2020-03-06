@@ -6,13 +6,17 @@ OSSEC está compuesto de múltiples piezas
 ### GERENTE
 	Almacena las bases de datos de comprobación de integridad de archivos, los registros, los eventos y las entradas de auditoría del sistema. Todas las reglas, decodificadores y las principales opciones de configuración se almacenan centralmente en el administrador
 	Los agentes se conectan al servidor en el puerto 1514 / udp. Se debe permitir la comunicación a este puerto para que los agentes se comuniquen con el servidor.
+	
 ### AGENTES
 	El agente es un pequeño programa, o colección de programas, instalado en los sistemas a monitorear. El agente recopilará información y la enviará al gerente para su análisis y correlación.
 	Nota: OSSEC solo se puede instalar como agente en plataformas Microsoft Windows. Estos sistemas requerirán un servidor OSSEC, que se ejecute en Linux u otro sistema similar a Unix.
+
 ### SIN AGENTES
 	Para los sistemas en los que no se puede instalar un agente, el soporte sin agente puede permitir que se realicen verificaciones de integridad. Los escaneos sin agente se pueden usar para monitorear firewalls, enrutadores e incluso sistemas Unix.
+
 ### VIRTUALIZACIÓN/VMWARE
 	OSSEC le permite instalar el agente en los sistemas operativos invitados. También se puede instalar dentro de algunas versiones de VMWare ESX.
+
 ### FIREWALLS, SWITCHES Y ROUTERS
 	OSSEC puede recibir y analizar eventos de syslog de una gran variedad de firewalls, conmutadores y enrutadores.
 
