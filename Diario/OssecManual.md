@@ -1,8 +1,8 @@
 # Manual de Ossec 
 
 ## ARQUITECTURA
+OSSEC está compuesto de múltiples piezas
 
-OSSEC está compuesto de múltiples piezas:
 	### GERENTE
 		Almacena las bases de datos de comprobación de integridad de archivos, los registros, los eventos y las entradas de auditoría del sistema. Todas las reglas, decodificadores y las principales opciones de configuración se almacenan centralmente en el administrador
 		Los agentes se conectan al servidor en el puerto 1514 / udp. Se debe permitir la comunicación a este puerto para que los agentes se comuniquen con el servidor.
