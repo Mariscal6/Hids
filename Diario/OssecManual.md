@@ -38,37 +38,37 @@ Estas opciones deben especificarse localmente en el archivo ossec.conf de cada a
 	El formato del registro que se lee.
 	Default: syslog
 	Valores permitidos:
-		** syslog:
+		* syslog:
 			Este formato es para archivos de texto sin formato en un formato tipo syslog. También se puede usar cuando no hay soporte para el formato de registro, y los registros son mensajes de una sola línea
-		** snort-full:
+		* snort-full:
 			Se usa para el formato de salida completo de Snort.
-		** snort-fast:
+		* snort-fast:
 			Se usa para el formato de salida rápida de Snort.
-		** squid:
+		* squid:
 			
-		** iis:
+		* iis:
 			
-		** eventlog:
+		* eventlog:
 			Se usa para el formato de registro de eventos de Microsoft Windows
-		** eventchannel:
+		* eventchannel:
 			Se usa para los registros de eventos de Microsoft Windows
-		** mysql_log:
+		* mysql_log:
 			Se usa para los registros de MySQL. No admite registros de varias líneas.
-		** postgresql_log:
+		* postgresql_log:
 			Se usa para los registros de PostgreSQL. No admite registros de varias líneas.
-		** nmapg:
+		* nmapg:
 			Se usa para monitorear archivos que se ajustan a la salida grepable de nmap .
-		** apache:
+		* apache:
 			Se usa para el formato de registro predeterminado de apache
-		** command:
+		* command:
 			Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el <comand>. Cada línea de salida se tratará como un registro separado. No se puede usar en agent.conf
-		** full_command:
+		* full_command:
 			Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el <comand>. Toda la salida se tratará como un único registro. No se puede usar en agent.conf
-		** djb-multilog:
+		* djb-multilog:
 			
-		** multi-line:
+		* multi-line:
 			Esta opción permitirá monitorear las aplicaciones que registran varias líneas por evento. Este formato requiere que el número de líneas sea consistente. Será seguido por el número de líneas en cada entrada de registro. Cada línea se combinará con las líneas anteriores hasta que todas las líneas estén reunidas en una sola
-		** multi-line_indented:
+		* multi-line_indented:
 			Este formato de registro acepta registros que abarcan varias líneas con líneas posteriores que comienzan con un espacio o una pestaña.
 			
 * <command>:
@@ -222,12 +222,12 @@ Realizará la detección de rootkits en todos los sistemas donde esté instalado
 Estas opciones de configuración se pueden especificar en el archivo ossec.conf de cada agente, a excepción de auto_ignore y alert_new_file que se aplican a las instalaciones locales y de administrador. La opción ignore se aplica a todos los agentes si se especifica en el administrador.
 * <base_directory>:
 	El directorio base que se agregará a las siguientes opciones:
-		** rootkit_files
-		** rootkit_trojans
-		** windows_malware
-		** windows_audit
-		** windows_apps
-		** sistemas_auditoría
+		* rootkit_files
+		* rootkit_trojans
+		* windows_malware
+		* windows_audit
+		* windows_apps
+		* sistemas_auditoría
 	Valores permitidos: ruta a un directorio
 	Default: /var/ossec
 * <rootkit_files>:
