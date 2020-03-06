@@ -30,59 +30,59 @@ Se realiza dentro de OSSEC por el recolector de registros y los procesos analiza
 ### Opciones de configuración
 Estas opciones deben especificarse localmente en el archivo ossec.conf de cada agente o en el recurso compartido agent.conf. Dentro del <localfile> elemento, puede tener las siguientes opciones.
 	
-* <location>:
+- <location>:
 	Especifica la ubicación del registro que se leerá. Los formatos de strftime pueden usarse para nombres de archivos de registro
 	Default: /var/log/messages
 	Valor permitido: Cualquier fichero log
 	
-* <log_format> :
+- <log_format> :
 	El formato del registro que se lee.
 	Default: syslog
 	Valores permitidos:
-		* syslog:
+		- syslog:
 			Este formato es para archivos de texto sin formato en un formato tipo syslog. También se puede usar cuando no hay soporte para el formato de registro, y los registros son mensajes de una sola línea
-		* snort-full:
+		- snort-full:
 			Se usa para el formato de salida completo de Snort.
-		* snort-fast:
+		- snort-fast:
 			Se usa para el formato de salida rápida de Snort.
-		* squid:
-		* iis:
-		* eventlog:
+		- squid:
+		- iis:
+		- eventlog:
 			Se usa para el formato de registro de eventos de Microsoft Windows
-		* eventchannel:
+		- eventchannel:
 			Se usa para los registros de eventos de Microsoft Windows
-		* mysql_log:
+		- mysql_log:
 			Se usa para los registros de MySQL. No admite registros de varias líneas.
-		* postgresql_log:
+		- postgresql_log:
 			Se usa para los registros de PostgreSQL. No admite registros de varias líneas.
-		* nmapg:
+		- nmapg:
 			Se usa para monitorear archivos que se ajustan a la salida grepable de nmap .
-		* apache:
+		- apache:
 			Se usa para el formato de registro predeterminado de apache
-		* command:
+		- command:
 			Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el <comand>. Cada línea de salida se tratará como un registro separado. No se puede usar en agent.conf
-		* full_command:
+		- full_command:
 			Este formato será el resultado del comando (como lo ejecuta la raíz) definido por el <comand>. Toda la salida se tratará como un único registro. No se puede usar en agent.conf
-		* djb-multilog:
-		* multi-line:
+		- djb-multilog:
+		- multi-line:
 			Esta opción permitirá monitorear las aplicaciones que registran varias líneas por evento. Este formato requiere que el número de líneas sea consistente. Será seguido por el número de líneas en cada entrada de registro. Cada línea se combinará con las líneas anteriores hasta que todas las líneas estén reunidas en una sola
-		* multi-line_indented:
+		- multi-line_indented:
 			Este formato de registro acepta registros que abarcan varias líneas con líneas posteriores que comienzan con un espacio o una pestaña.
 			
-* <command>:
+- <command>:
 	El comando a ejecutar. Todos los resultados de este comando se leerán como uno o más mensajes de registro dependiendo de si se usa el comando o full_command.
 	Valores permitidos: Cualquier línea de comando y argumentos.
-* <alias>:
+- <alias>:
 	Un alias para identificar el comando. Este reemplazará el comando en el mensaje que muestre el registro.
-* <frequency>:
+- <frequency>:
 	El tiempo mínimo en segundos entre ejecuciones de comandos. Esto se usa con command y full_command.
 	Valores permitidos: Tiempo en segundos.
-* <check_diff>:
+- <check_diff>:
 	La salida de un evento se almacenará en una base de datos interna. Cada vez que se recibe el mismo evento, la salida se compara con la salida anterior. Si la salida ha cambiado, se generará una alerta.
-* <only-future-events>:
+- <only-future-events>:
 	Solo se usa con el eventchannel de registro. OSSEC solo recibirá eventos que ocurrieron después del inicio de logcollector.
 	Valor permitidos: Yes/No
-* <query>:
+- <query>:
 	Solo se usa con el eventchannel de registro. Es posible especificar una consulta XPATH siguiendo el esquema de eventos para filtrar los eventos que procesará OSSEC.
 	
 ### Supervisión de procesos
