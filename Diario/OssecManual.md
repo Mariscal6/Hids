@@ -338,5 +338,12 @@ Permite búsquedas de CDB desde dentro de las reglas en OSSEC (ossec-analysisd) 
 * Formato de archivo de texto de lista  
 	Será en formato clave:valor  
   
+  Más información sobre reglas y decoders: https://www.ossec.net/docs/docs/manual/rules-decoders/index.html
   
-Más información sobre reglas y decoders: https://www.ossec.net/docs/docs/manual/rules-decoders/index.html
+### Crear decodificador personalizado y reglas
+*Agregar un archivo para ser monitoreado: Agregar en ossec.conf  
+	<localfile>  
+	<log_format>syslog</log_format>  
+	<location>/path/to/log/file</location>  
+	</localfile>  
+
