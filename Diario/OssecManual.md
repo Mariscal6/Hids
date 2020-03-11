@@ -341,9 +341,90 @@ Permite búsquedas de CDB desde dentro de las reglas en OSSEC (ossec-analysisd) 
   Más información sobre reglas y decoders: https://www.ossec.net/docs/docs/manual/rules-decoders/index.html
   
 ### Crear decodificador personalizado y reglas
-*Agregar un archivo para ser monitoreado: Agregar en ossec.conf  
-	<localfile>  
+*Agregar un archivo para ser monitoreado: Agregar en ossec.conf 
+```html
+<localfile>  
 	<log_format>syslog</log_format>  
 	<location>/path/to/log/file</location>  
-	</localfile>  
+</localfile>  
+```
+* Crear un decodificador personalizado  
+Los siguientes mensajes de registro se utilizarán para la mayoría de los ejemplos en esta sección:  
+
+2013-11-01T10: 01: 04.600374-04: 00 arrakis ossec-exampled [9123]: prueba de conexión desde 192.168.1.1 a través del protocolo de 
+prueba1  
+2013-11-01T10: 01: 05.600494-04: 00 arrakis ossec-exampled [9123 ]: autenticación exitosa para el usuario test-user desde 192.168.1.1 a través de test-pr
+  
+El primer mensaje de registro se desglosa de la siguiente manera:  
+
+  - 2013-11-01T10: 01: 04.600374-04: 00 - marca de tiempo de rsyslog  
+  - arrakis: nombre de host del sistema  
+  - ossec-exampled: demonio que crea el registro  
+  - [9123] - ID de proceso de la instancia de ejemplo ossec  
+  - conexión de prueba desde 192.168.1.1 mediante test-protocol1 - mensaje de registro  
+  
+ ossec-logtest se usará para probar el decodificador personalizado y cualquier regla personalizada. Se agregan decodificadores personalizados al archivo local_decoder.xml, que normalmente se encuentran en /var/ossec/etc  
+ La sintaxis la podéis encontrar aquí: https://www.ossec.net/docs/docs/syntax/head_decoders.html  
+ Para ver como personalizar un decoder aquí podéis ver cómo: https://www.ossec.net/docs/docs/manual/rules-decoders/create-custom.html  
+ 
+### Carga de ruta de directorio de reglas y decodificadores
+Ossec-anaylistd permite cargar directorios completos de archivos como decodificadores, listas o reglas.  
+
+* Sintaxis para OSSEC:  
+	Toda la carga del directorio se realiza en forma alfabética.  
+  *Directorio de carga:  
+  El formato básico para la selección del archivo de reglas es el siguiente.(No se cargarán archivos duplicados)  
+  ```html
+  <ossec_config> 
+    <rules> 
+        <rule_dir  pattern = "_rules.xml" > reglas </rule_dir>
+	```  
+	Para ver ejemplos: https://www.ossec.net/docs/docs/manual/rules-decoders/rule_decoder_dir.html  
+	
+### Clasificación de reglas	
+Las reglas se leerán desde el nivel más alto al más bajo  
+clasificación por niveles: https://www.ossec.net/docs/docs/manual/rules-decoders/rule-levels.html
+
+## Opciones de salida y alerta
+OSSEC incluye varias formas de enviar alertas a otros sistemas o aplicaciones. Syslog, correo electrónico y envío de alertas a una base de datos SQL son los métodos típicos. Estos métodos de salida solo envían alertas, no datos de registro completos. Como los agentes no generan alertas, estas opciones son solo del lado del servidor.  
+
+### Enviar alertas a través de syslog
+Estas opciones son solo para instalaciones locales o de servidor.  
+  
+Opciones de configuración de < syslog_output >:  
+* server: Dirección IP del servidor syslog  
+  Valores permitidos: cualquier dirección IP válida  
+* port: Puerto para reenviar alertas.  
+	Default: 514  
+	Valores permitidos: cualquier puerto válido  
+
+* level: Nivel mínimo de alerta de las alertas a reenviar.  
+	Valores permitidos: 1 - 16  
+
+* group: Las alertas que pertenecen a este grupo se reenviarán.  
+	Valores permitidos: cualquier grupo válido. Separe varios grupos con el carácter pipe ( | ).  
+
+* rule_id: Se enviarán las alertas que coincidan con este rule_id.  
+	Valores permitidos: cualquier regla válida  
+
+* location: Las alertas de esta ubicación serán reenviadas.  
+	Valores permitidos: cualquier ubicación válida de archivo de registro  
+
+* use_fqdn:( Nuevo en la versión 2.9.0.) Establecer esta opción en 'sí' hará que use el nombre de host completo configurado en el servidor.  
+	Default: no  
+	Valores permitidos: si/no  
+
+* format: Formato de salida de alerta. El formato predeterminado es "predeterminado", o la salida completa de syslog.  
+	Valores permitidos:	default, cef, splunk, json  
+	
+###	Habilitando la salida de Syslog
+el proceso cliente-syslog debería estar habilitado:  
+$ /var/ossec/bin/ossec-control enable client-syslog  
+   
+Y finalmente reinicie los procesos OSSEC:  
+/var/ossec/bin/ossec-control restart  
+  
+Más en: https://www.ossec.net/docs/docs/manual/output/syslog-output.html  
+
+### Envío de alertas por correo electrónico 
 
